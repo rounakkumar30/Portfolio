@@ -259,7 +259,7 @@ img{
 .text-btn .btn {
     border: none;
     color: #f4f4f4;
-    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 5px 1px rgba(248, 247, 247, 0.1);
 }
 
 .btn {
@@ -280,6 +280,89 @@ img{
 
 i {
     font-size: 16px;
+}
+/* Button and Link Styling */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid transparent; /* Default border style */
+    border-radius: 4px;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.hire-btn {
+    background-color: #000; /* Background color for "Hire me" button */
+    color: #fff; /* Text color for "Hire me" button */
+    border: 2px solid #fff; /* White border */
+}
+
+.hire-btn:hover {
+    background-color: #333; /* Darker background on hover */
+}
+
+.btn + .btn {
+    margin-left: 20px; /* Adjust gap between buttons and links */
+}
+
+.btn i {
+    margin-left: 8px; /* Space between text and icon */
+}
+
+/* Link Styling */
+a {
+    color: #000; /* Default text color */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+/* General Button and Link Styling */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid transparent; /* Default border style */
+    border-radius: 4px;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hire me Button Styling */
+.hire-btn {
+    background-color: #000; /* Background color for "Hire me" button */
+    color: #fff; /* Text color for "Hire me" button */
+    border: 2px solid #fff; /* White border */
+}
+
+.hire-btn:hover {
+    background-color: #333; /* Darker background on hover */
+}
+
+/* View CV Link Styling */
+.view-cv-btn {
+    background-color: #fff; /* Background color for "View CV" link */
+    color: #000; /* Text color for "View CV" link */
+    border: 2px solid #000; /* Black border */
+}
+
+.view-cv-btn:hover {
+    background-color: #f0f0f0; /* Lighter background on hover */
+}
+
+/* Gap Between Buttons and Links */
+.btn + .btn {
+    margin-left: 20px; /* Adjust gap between buttons */
+}
+
+/* Icon Spacing */
+.btn i {
+    margin-left: 8px; /* Space between text and icon */
 }
 
 /* ===== SKILLS =====*/
@@ -383,42 +466,80 @@ i {
 }
 
 /* ===== CERTIFICATE ===== */
-.certificate{
-    background-color: var(--white-color);
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.certificate__container{
+
+/* Section Styling */
+.Certificate {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Container Styling */
+.certificate__container {
     display: flex;
-    justify-items: center;
-    align-items: center;
-    row-gap: 2rem;
-}
-.certificate__img{
-    position: relative;
-    overflow: hidden;
-}
-.certificate__img img{
-    border-radius: .5rem;
-}
-.certificate__link{
-    position: absolute;
-    bottom: -100%;
-    width: 100%;
-    height: 100%;
-    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    background-color: rgba(255,255,255,.3);
-    border-radius: .5rem;
-    cursor: pointer;
-    backdrop-filter: blur(10px);
-    transition: .3s;
+    gap: 20px;
 }
-.certificate__img:hover .portfolio__link{
-    bottom: 0;
+
+.certificate__img {
+    position: relative;
+    max-width: 300px; /* Adjust max-width as needed */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    align-content: center;
 }
-.certificate__link-name{
-    color: var(--dark-color);
+
+.certificate__img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
 }
+
+.certificate__img:hover {
+    transform: scale(1.05);
+}
+
+/* Link Styling */
+.certificate__link {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+}
+
+.portfolio__link-name {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.portfolio__link-name:hover {
+    background-color: #333;
+}
+
 
     /* form */
 .container {
