@@ -71,6 +71,11 @@
                             <a href="https://github.com/rounakkumar30" class="about__social-icon"><i class='bx bxl-github' ></i></a>
                             <a href="https://www.instagram.com/rounak__kumar30/" class="about__social-icon"><i class='bx bxl-instagram' ></i></a>
                         </div>
+                        <div class="text-btn">
+                            <button class="btn hire-btn">Hire me</button>
+                            <a href="Pushkar's CV.pdf" class="btn" view="Pushkar's CV.pdf">View CV<i class="uil uil-file"></i></a>
+                            
+                        </div>
                     </div>
                 </div>
             </section>
@@ -153,34 +158,49 @@
                 </div>
             </section>
 
-            <!--===== CONTACT =====-->
-            <section class="contact section" id="contact">
-                <h2 class="section-title">Contact</h2>
+            <!-- Certification -->
+            <section class="Certificate section" id="Certificate">
+                <h2 class="section-title">Certificate</h2>
 
-                <div class="contact__container bd-grid">
-                    <div class="contact__info">
-                        <h3 class="contact__subtitle">EMAIL</h3>
-                        <span class="contact__text">rounakverma30march@gmail.com</span>
+                <div class="certificate__container bd-grid">
+                    <div class="certificate__img">
+                        <img src="assets/img/certi1.png" alt="">
 
-                        <h3 class="contact__subtitle">PHONE</h3>
-                        <span class="contact__text">7903740337</span>
-
-                        <h3 class="contact__subtitle">ADdRESS</h3>
-                        <span class="contact__text">Greater Noida, Uttar Pradesh, 201310</span>
-                    </div>
-
-                    <form action="" class="contact__form">
-                        <div class="contact__inputs">
-                            <input type="text" placeholder="Name" class="contact__input">
-                            <input type="mail" placeholder="Email" class="contact__input">
+                        <div class="certificate__link">
+                            <a href="" class="portfolio__link-name">Dark Pattern</a>
                         </div>
+                    </div>
+                    <div class="certificate__img">
+                        <img src="assets/img/certi2.png" alt="">
 
-                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
+                        <div class="certificate__link">
+                            <a href="" class="portfolio__link-name">SIH</a>
+                        </div>
+                    </div>
+                    <div class="certificate__img">
+                        <img src="assets/img/certi3.png" alt="">
 
-                        <input type="submit" value="Submit" class="contact__button">
-                    </form>
+                        <div class="certificate__link">
+                            <a href="" class="portfolio__link-name">InternPe</a>
+                        </div>
+                    </div>
                 </div>
             </section>
+
+            <!--===== CONTACT =====-->
+            <div class="container">
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    <h1>Get in Touch</h1>
+                    <input type="hidden" name="access_key" value="6f0f4ab0-d38d-47ee-8c92-9f46d5c002d6">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <input type="email" id="email" name="email" placeholder="Email id" required>
+                    <input type="text" id="phone" name="phone" placeholder="Phone No." required>
+                    <textarea id="message" name="message" rows="4" placeholder="How can we help you?"></textarea>
+                    <button type="submit">Send</button>
+                </form>
+                
+            </div>
+            
         </main>
 
         <!--===== FOOTER =====-->
@@ -218,5 +238,27 @@
 
         <!--===== MAIN JS =====-->
         <script src="assets/js/main.js"></script>
+
+        <!-- <script src="https://smtpjs.com/v3/smtp.js">
+        </script>
+        <script>
+            function sendEmail() {
+                Email.send({
+                    SecureToken: "7b5090aa-89bb-4003-bafc-6b241c0dee9e",
+                    To: 'rounakverma30march@gmail.com',
+                    From: document.getElementById("email").value,
+                    Subject: "New Contact Form Enquiry",
+                    Body: "Name: " + document.getElementById("name").value
+                        + "<br> Email: " + document.getElementById("email").value
+                        + "<br> Phone No.: " + document.getElementById("phone").value
+                        + "<br> Message: " + document.getElementById("message").value
+                }).then(
+                    message => alert("Message Sent Successfully")
+                ).catch(
+                    error => console.error("Error:", error)
+                );
+            }
+        </script> -->
+        
     </body>
 </html>
