@@ -736,3 +736,44 @@ a:hover {
     }
     
 }
+@media (min-width: 768px) and (max-width: 1024px) {
+    form {
+        padding: 1rem;
+    }
+
+    form h1 {
+        font-size: 1.75rem;
+    }
+
+    input, textarea {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile devices (max-width: 767px) */
+@media (max-width: 767px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    form {
+        padding: 0.5rem;
+    }
+
+    form h1 {
+        font-size: 1.5rem;
+    }
+
+    input, textarea {
+        font-size: 0.85rem;
+    }
+
+    button {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+}
