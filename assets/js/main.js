@@ -40,6 +40,21 @@ function scrollActive(){
         }
     })
 }
+// main.js
+
+// Function to add 'active' class to the clicked resume item
+document.addEventListener('DOMContentLoaded', () => {
+    const resumeItems = document.querySelectorAll('.resume__item');
+
+    resumeItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // Remove 'active' class from all items
+            resumeItems.forEach(el => el.classList.remove('active'));
+            // Add 'active' class to the clicked item
+            item.classList.add('active');
+        });
+    });
+});
 
 /*===== SCROLL REVEAL ANIMATION =====*/
 const sr = ScrollReveal({
