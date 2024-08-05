@@ -420,6 +420,11 @@ a:hover {
     margin-top: 0.5rem;
 }
 
+    .resume__item.active {
+        border: 2px solid #333;
+        background-color: #e0e0e0;
+    }
+
 /* ===== SKILLS =====*/
 .skills__container{
     row-gap: 2rem;
