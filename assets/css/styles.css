@@ -364,6 +364,61 @@ a:hover {
 .btn i {
     margin-left: 8px; /* Space between text and icon */
 }
+/* Resume Section */
+.resume {
+    padding: 2rem 0;
+}
+
+.resume__title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.resume__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.resume__content {
+    flex: 1 1 45%;
+    max-width: 500px;
+    border: 1px solid #e0e0e0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.resume__item {
+    margin-bottom: 1.5rem;
+}
+
+.resume__item-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.resume__item-company,
+.resume__item-institution {
+    font-size: 1rem;
+    font-style: italic;
+    color: #555;
+}
+
+.resume__item-date {
+    font-size: 0.875rem;
+    color: #999;
+}
+
+.resume__item-description {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
 
 /* ===== SKILLS =====*/
 .skills__container{
