@@ -1,338 +1,1418 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Rounak Kumar - Full Stack Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        <!-- ===== CSS ===== -->
-        <link rel="stylesheet" href="assets/css/styles.css">
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --dark-color: #0f172a;
+            --text-color: #334155;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
 
-        <!-- ===== BOX ICONS ===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-        <title>Portfolio responsive complete</title>
-    </head>
-    <body>
-        <!--===== HEADER =====-->
-        <header class="l-header">
-            <nav class="nav bd-grid">
-                <div>
-                    <a href="#" class="nav__logo">Rounak Kumar</a>
-                </div>
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#resume" class="nav__link">Resume</a></li>
-                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                        <li class="nav__item"><a href="#portfolio" class="nav__link">Projects</a></li>
-                        <li class="nav__item"><a href="#certificate" class="nav__link">Certificate</a></li>
-                    </ul>
-                    
-                </div>
-                
+        ::-webkit-scrollbar-track {
+            background: var(--light-bg);
+        }
 
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-menu'></i>
-                </div>
-            </nav>
-        </header>
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
 
-        <main class="l-main">
-            <!--===== HOME =====-->
-            <section class="home" id="home">
-                <div class="home__container bd-grid">
-                    <h1 class="home__title"><span>HE</span><br>LLO.</h1>
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
 
-                    <div class="home__scroll">
-                        <a href="#about" class="home__scroll-link"><i class='bx bx-up-arrow-alt' ></i>Scroll down</a>
-                    </div>
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-lg);
+        }
 
-                    <img src="assets\img\me.png" alt="" class="home__img">
-                </div>
-            </section>
-            
-            <!--===== ABOUT =====-->
-            <section class="about section" id="about">
-                <h2 class="section-title">About</h2>
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-                <div class="about__container bd-grid">
-                    <div class="about__img">
-                        <img src="assets\img\me.png" alt="">
-                    </div>
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-                    <div>
-                        <h2 class="about__subtitle">I am Rounak Kumar</h2>
-                        <span class="about__profession">Programmer</span>
-                        <p class="about__text">To use my knowledge in programming to contribute to creative projects, using modern frameworks and techniques
-                            to produce excellent software solutions, all the while refining my skills while keeping up with new developments in
-                            the industry</p>
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
-                            <div class="about__social">
-                                <a href="https://www.linkedin.com/in/rounakkumar30/" class="about__social-icon" target="_blank" rel="noopener noreferrer">
-                                    <i class='bx bxl-linkedin'></i>
-                                </a>
-                                <a href="https://github.com/rounakkumar30" class="about__social-icon" target="_blank" rel="noopener noreferrer">
-                                    <i class='bx bxl-github'></i>
-                                </a>
-                                <a href="https://www.instagram.com/rounak__kumar30/" class="about__social-icon" target="_blank" rel="noopener noreferrer">
-                                    <i class='bx bxl-instagram'></i>
-                                </a>
-                            </div>
-                            
-                        <button class="btn hire-btn" onclick="document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });">Hire me</button>
-                        <a href="assets/img/Rounak Kumar Resume.pdf" class="btn" target="_blank" view="Rounak Kumar.pdf">View CV<i class="uil uil-file"></i></a>
-                    </div>
-                </div>
-            </section>
- <!--===== RESUME =====-->
- <section class="resume section" id="resume">
-    <h2 class="section-title">Resume</h2>
+        .nav-link {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
 
-    <div class="resume__container bd-grid">
-        <div class="resume__content">
-            <h3 class="resume__title">Experience</h3>
-            <div class="resume__item">
-                <h4 class="resume__item-title">Python Developer</h4>
-                <span class="resume__item-company">InternPe</span> - <span class="resume__item-date">April 2024 - May 2024</span>
-                <p class="resume__item-description">Developed several projects based on Python, including a Tic Tac Toe game, a Snake game, and various other applications.</p>
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero-content p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 1s ease 0.6s backwards;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border: 10px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            object-fit: cover;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .section-light {
+            background: var(--light-bg);
+        }
+
+        .section-white {
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-1);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--primary-color);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .about-text .role {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--light-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        .timeline-content {
+            width: calc(50% - 40px);
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 4px solid var(--white);
+            box-shadow: var(--shadow-md);
+            z-index: 1;
+        }
+
+        .timeline-content h4 {
+            color: var(--dark-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-date {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-content li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .timeline-content li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-category h3 {
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category h3 i {
+            color: var(--primary-color);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: var(--light-bg);
+            border-radius: 25px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(37, 99, 235, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-link {
+            padding: 0.75rem 1.5rem;
+            background: var(--white);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h4 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Certificates */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .certificate-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .certificate-card:hover {
+            transform: scale(1.05);
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .certificate-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .certificate-title {
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        /* Contact Form */
+        .contact-section {
+            background: var(--gradient-1);
+            padding: 5rem 2rem;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .contact-container h2 {
+            text-align: center;
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--light-bg);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--gradient-1);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Achievements */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .achievement-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .achievement-card h4 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-card p {
+            color: var(--text-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow-lg);
+                transition: left 0.3s ease;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .hero-image img {
+                width: 300px;
+                height: 300px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-content {
+                width: calc(100% - 40px);
+                margin-left: 40px !important;
+            }
+
+            .timeline-dot {
+                left: 0;
+                transform: translateX(0);
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid,
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">RK</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#certificates" class="nav-link">Certificates</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <i class='bx bx-menu'></i>
             </div>
-            <div class="resume__item">
-                <h4 class="resume__item-title">Web Developer</h4>
-                <span class="resume__item-company">Zidio</span> - <span class="resume__item-date">July 2024 - October 2024</span>
-                <p class="resume__item-description">Collaborated with a team to develop full-stack projects, including a 'Job Listing Portal' using the MERN stack and a 'Certificate Verification System'.</p>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Hi, I'm <br>Rounak Kumar</h1>
+                <p class="subtitle">Full Stack Developer</p>
+                <p>Passionate about creating innovative web solutions with modern technologies. Specialized in Python, Django, React.js, and building scalable applications.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class='bx bx-envelope'></i> Get In Touch
+                    </a>
+                    <a href="assets\img\Rounak Kumar.pdf" class="btn btn-outline" target="_blank">
+                        <i class='bx bx-download'></i> Download CV
+                    </a>
+                </div>
             </div>
-            <!-- New section added here -->
-            <div class="resume__item">
-                <h4 class="resume__item-title">Prompt Engineer</h4>
-                <span class="resume__item-company">Green Rider Technology</span> - <span class="resume__item-date">Nov 2024 - Jan 2025</span>
-                <ul>
-                    <li class="resume__item-description">Design, develop, and refine AI-generated text prompts for various applications.</li>
-                    <li class="resume__item-description">Monitor and analyze prompt performance to identify areas for improvement.</li>
-                    <li class="resume__item-description">Optimize AI prompt generation process to enhance overall system performance.</li>
-                    <li class="resume__item-description">Stay up-to-date on advancements in AI, NLP, and ML.</li>
-                    <li class="resume__item-description">Collaborate effectively with cross-functional teams.</li>
-                    <li class="resume__item-description">Assess AI models by collecting and analyzing feedback.</li>
+            <div class="hero-image">
+                <img src="assets/img/me.png" alt="Rounak Kumar">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section section-light" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Get to know more about my journey and expertise</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="assets/img/me.png" alt="Rounak Kumar">
+                </div>
+                <div class="about-text">
+                    <h3>Full Stack Developer & AI Enthusiast</h3>
+                    <p class="role">B.Tech in Computer Science | Galgotias University</p>
+                    <p>I'm a passionate developer with expertise in building end-to-end web applications and implementing AI/ML solutions. My journey in tech has been driven by curiosity and a constant desire to learn and innovate.</p>
+                    <p>Currently working at MultiTV, where I pioneer video workflow automation and create interactive dashboards that help businesses make data-driven decisions. I thrive in collaborative environments and love solving complex problems with elegant solutions.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/rounakkumar30/" class="social-link" target="_blank">
+                            <i class='bx bxl-linkedin'></i>
+                        </a>
+                        <a href="https://github.com/rounakkumar30" class="social-link" target="_blank">
+                            <i class='bx bxl-github'></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section section-white" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Work Experience</h2>
+                <p class="section-subtitle">My professional journey and key achievements</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>Python Developer</h4>
+                        <p class="timeline-company">MultiTV</p>
+                        <p class="timeline-date">May 2025 - Present | Full-Time</p>
+                        <ul>
+                            <li>Pioneered end-to-end video workflow automation reducing manual tasks by 90%</li>
+                            <li>Designed 10+ interactive dashboards cutting decision-making time by 30%</li>
+                            <li>Delivered production-ready solutions for high-traffic OTT platforms</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>Python Desktop Developer</h4>
+                        <p class="timeline-company">Infowareindia</p>
+                        <p class="timeline-date">April 2025 - May 2025 | Internship</p>
+                        <ul>
+                            <li>Developed cross-platform desktop applications using PySide6 (Qt Framework)</li>
+                            <li>Implemented intuitive UI/UX designs for enterprise software solutions</li>
+                            <li>Maintained technical documentation and version control with Git/GitHub</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>Prompt Engineer</h4>
+                        <p class="timeline-company">Green Rider Technology</p>
+                        <p class="timeline-date">Nov 2024 - Jan 2025 | Full-Time</p>
+                        <ul>
+                            <li>Improved AI prompt engagement and accuracy by 25%</li>
+                            <li>Reduced AI processing time by 40% through workflow optimization</li>
+                            <li>Enhanced user retention by 20% with refined prompt strategies</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section section-light" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="section-subtitle">Technologies and tools I work with</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class='bx bx-code-alt'></i> Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class='bx bx-globe'></i> Web Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">Django REST</span>
+                        <span class="skill-tag">WebSocket</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class='bx bx-data'></i> Databases</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">SQLite</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class='bx bx-video'></i> Media & Streaming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">FFmpeg</span>
+                        <span class="skill-tag">Bento4</span>
+                        <span class="skill-tag">Shaka Player</span>
+                        <span class="skill-tag">OTT Platforms</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class='bx bx-server'></i> DevOps & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Ubuntu Server</span>
+                        <span class="skill-tag">Deployment</span>
+                        <span class="skill-tag">Server Management</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class='bx bx-brain'></i> AI & Machine Learning</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">AI Development</span>
+                        <span class="skill-tag">NLP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section section-white" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Some of my recent work and side projects</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/img/work7.jpg" alt="Real Time Chat">
+                        <div class="project-overlay">
+                            <a href="https://github.com/rounakkumar30/Real-Time-Chatting-Application.git" class="project-link" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4>Real-Time Chat Application</h4>
+                        <p>Built with Django, WebSocket, and Django Channels featuring user authentication, private/group chats, and real-time updates.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/img/work8.jpg" alt="E-Commerce">
+                        <div class="project-overlay">
+                            <a href="https://github.com/rounakkumar30/E-Commerce-website-using-Django.git" class="project-link" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4>E-Commerce Platform</h4>
+                        <p>Full-featured Django e-commerce site with secure authentication, cart management, and optimized performance.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/img/work1.jpg" alt="Dark Pattern">
+                        <div class="project-overlay">
+                            <a href="https://github.com/rounakkumar30/Dark-Pattern" class="project-link" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4>Dark Pattern Detection</h4>
+                        <p>AI-powered system to detect deceptive UI patterns on websites, promoting ethical design practices.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/img/work2.jpg" alt="Movie Recommendation">
+                        <div class="project-overlay">
+                            <a href="https://github.com/rounakkumar30/Movie_Recommandation" class="project-link" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4>Movie Recommendation System</h4>
+                        <p>Machine learning based recommendation engine providing personalized movie suggestions.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/img/work3.jpg" alt="Image Denoising">
+                        <div class="project-overlay">
+                            <a href="https://github.com/rounakkumar30/Image-Denoising" class="project-link" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4>Image Denoising</h4>
+                        <p>Advanced image processing application using ML algorithms to remove noise from images.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/img/work4.jpg" alt="Grocery Site">
+                        <div class="project-overlay">
+                            <a href="https://github.com/rounakkumar30/Grocery_Site" class="project-link" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4>Grocery Shopping Site</h4>
+                        <p>Online grocery platform with product catalog, shopping cart, and order management.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/img/work5.jpg" alt="Imageify">
+                        <div class="project-overlay">
+                            <a href="https://github.com/rounakkumar30/Imageify" class="project-link" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4>Imageify</h4>
+                        <p>Image manipulation and enhancement tool with various filters and effects.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/img/work6.jpg" alt="Smart Farming">
+                        <div class="project-overlay">
+                            <a href="https://github.com/rounakkumar30/Inert_Farming" class="project-link" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4>Smart Farming System</h4>
+                        <p>IoT-based agricultural monitoring system for precision farming and crop management.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Achievements</h2>
+                <p class="section-subtitle">Recognition and accomplishments</p>
+            </div>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class='bx bx-trophy'></i>
+                    </div>
+                    <h4>Top 5 Finalist</h4>
+                    <p>HackWithDelhi 2024 - Recognized for innovative web application development</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class='bx bx-medal'></i>
+                    </div>
+                    <h4>DPBH Competition Finalist</h4>
+                    <p>IIT BHU - Developed efficient data processing solution for large datasets</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="section section-white" id="certificates">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Certifications</h2>
+                <p class="section-subtitle">Professional certifications and achievements</p>
+            </div>
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <div class="certificate-image">
+                        <img src="assets/img/SIH Certificate.jpg" alt="SIH Certificate">
+                    </div>
+                    <div class="certificate-title">Smart India Hackathon</div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-image">
+                        <img src="assets/img/DPBH.jpg" alt="DPBH Certificate">
+                    </div>
+                    <div class="certificate-title">Dark Pattern Buster Hackathon</div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-image">
+                        <img src="assets/img/Hackwithdelhi.jpg" alt="Hack with Delhi">
+                    </div>
+                    <div class="certificate-title">Hack With Delhi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <h2>Get In Touch</h2>
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="8219998f-9005-42de-b9fa-7a7ae6f9d69a">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Rounak Kumar</h3>
+                <p>Full Stack Developer passionate about creating innovative web solutions and exploring new technologies.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
-        </div>
-
-        <div class="resume__content">
-            <h3 class="resume__title">Education</h3>
-            <div class="resume__item">
-                <h4 class="resume__item-title">Bachelor of Technology in Computer Science</h4>
-                <span class="resume__item-institution">Galgotias University</span> - <span class="resume__item-date">2021 - 2025</span>
-                <p class="resume__item-description">Studied various subjects related to computer science and engineering, including algorithms, data structures, and software development.</p>
-            </div>
-            <div class="resume__item">
-                <h4 class="resume__item-title">12th Grade</h4>
-                <span class="resume__item-institution">Munam Public School</span> - <span class="resume__item-date">2019 - 2021</span>
-                <p class="resume__item-description">Completed high school with a focus on science subjects, including mathematics, physics, and chemistry.</p>
-            </div>
-            <div class="resume__item">
-                <h4 class="resume__item-title">10th Grade</h4>
-                <span class="resume__item-institution">Mount Litera Zee School</span> 
-                <p class="resume__item-description">Completed class 10 with a focus on core subjects, including mathematics, science, and social studies, demonstrating strong academic performance.</p>
+            <div class="footer-section">
+                <h3>Follow Me</h3>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/rounakkumar30/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://github.com/rounakkumar30" target="_blank"><i class='bx bxl-github'></i></a>
+                    <a href="https://www.instagram.com/rounak__kumar30/" target="_blank"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://x.com/Rounak__kumar30" target="_blank"><i class='bx bxl-twitter'></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100059726088451" target="_blank"><i class='bx bxl-facebook'></i></a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Rounak Kumar. All rights reserved.</p>
+        </div>
+    </footer>
 
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
 
-            <!--===== SKILLS =====-->
-            <section class="skills section" id="skills">
-                <h2 class="section-title">Skills</h2>
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
 
-                <div class="skills__container bd-grid">
-                    <div class="skills__box">
-                        <h3 class="skills__subtitle">Languages</h3>
-                        <span class="skills__name">Python</span>
-                        <span class="skills__name">Java</span>
-                        <span class="skills__name">Flask</span>
-                        <span class="skills__name">Django</span>
-                        <span class="skills__name">MongoDB</span>
-                        <span class="skills__name">MySQL</span>
-                        <span class="skills__name">Html</span>
-                        <span class="skills__name">Css</span>
-                        <span class="skills__name">Javascript</span>
-                        <span class="skills__name">Git</span>
-                        <span class="skills__name">Github</span>
-                        <h3 class="skills__subtitle">Technical</h3>
-                        <span class="skills__name">Artificial Intelligence</span>
-                        <span class="skills__name">Machine Learning</span>
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
 
-                    </div>
-
-                    <div class="skills__img">
-                        <img src="assets/img/skill.jpg" alt="">
-                    </div>
-                </div>
-            </section>
-
-            <!--===== PORTFOLIO =====-->
-            <section class="portfolio section" id="portfolio">
-                <h2 class="section-title">Projects</h2>
-                <div class="portfolio__container bd-grid">
-                    <div class="portfolio__img">
-                        <img src="assets/img/work1.jpg" alt="">
-                        <div class="portfolio__link">
-                            <a href="https://github.com/rounakkumar30/Dark-Pattern" class="portfolio__link-name" target="_blank" rel="noopener noreferrer">Dark Pattern</a>
-                        </div>
-                    </div>
-                    <div class="portfolio__img">
-                        <img src="assets/img/work2.jpg" alt="">
-                
-                        <div class="portfolio__link">
-                            <a href="https://github.com/rounakkumar30/Movie_Recommandation" class="portfolio__link-name" target="_blank" rel="noopener noreferrer">Movie_Recommandation</a>
-                        </div>
-                    </div>
-                    <div class="portfolio__img">
-                        <img src="assets/img/work3.jpg" alt="">
-                
-                        <div class="portfolio__link">
-                            <a href="https://github.com/rounakkumar30/Image-Denoising" class="portfolio__link-name" target="_blank" rel="noopener noreferrer">Image-Denoising</a>
-                        </div>
-                    </div>
-                    <div class="portfolio__img">
-                        <img src="assets/img/work4.jpg" alt="">
-                
-                        <div class="portfolio__link">
-                            <a href="https://github.com/rounakkumar30/Grocery_Site" class="portfolio__link-name" target="_blank" rel="noopener noreferrer">Grocery_Site</a>
-                        </div>
-                    </div>
-                    <div class="portfolio__img">
-                        <img src="assets/img/work5.jpg" alt="">
-                
-                        <div class="portfolio__link">
-                            <a href="https://github.com/rounakkumar30/Imageify" class="portfolio__link-name" target="_blank" rel="noopener noreferrer">Imageify</a>
-                        </div>
-                    </div>
-                    <div class="portfolio__img">
-                        <img src="assets/img/work6.jpg" alt="">
-                
-                        <div class="portfolio__link">
-                            <a href="https://github.com/rounakkumar30/Inert_Farming" class="portfolio__link-name" target="_blank" rel="noopener noreferrer">Inert_Farming</a>
-                        </div>
-                    </div>
-                    <div class="portfolio__img">
-                        <img src="assets/img/work7.jpg" alt="">
-                
-                        <div class="portfolio__link">
-                            <a href="https://github.com/rounakkumar30/Real-Time-Chatting-Application.git" class="portfolio__link-name" target="_blank" rel="noopener noreferrer">Real Time Chat Application</a>
-                        </div>
-                    </div>
-                    <div class="portfolio__img">
-                        <img src="assets/img/work8.jpg" alt="">
-                
-                        <div class="portfolio__link">
-                            <a href="https://github.com/rounakkumar30/E-Commerce-website-using-Django.git" class="portfolio__link-name" target="_blank" rel="noopener noreferrer">E-Commerce website using Django</a>
-                        </div>
-                    </div>
-                </div>
-                
-            </section>
-
-            <!-- Certification -->
-            <section class="Certificate section" id="certificate">
-                <h2 class="section-title">Certificate</h2>
+        // Active Navigation on Scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
             
-                <div class="certificate__container bd-grid">
-                    <div class="certificate__img">
-                        <img src="assets/img/SIH Certificate.jpg" alt="">
-                        <div class="certificate__link">
-                            <a href="" class="portfolio__link-name">SIH</a>
-                        </div>
-                    </div>
-                    <div class="certificate__img">
-                        <img src="assets/img/DPBH.jpg" alt="">
-                        <div class="certificate__link">
-                            <a href="" class="portfolio__link-name">Dark Pattern</a>
-                        </div>
-                    </div>
-                    <div class="certificate__img">
-                        <img src="assets/img/Hackwithdelhi.jpg" alt="">
-                        <div class="certificate__link">
-                            <a href="" class="portfolio__link-name">HackwithDelhi</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
 
-            <!--===== CONTACT =====-->
-            <div class="container">
-                <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
-                    <h1>Get in Touch</h1>
-                    <input type="hidden" name="access_key" value="8219998f-9005-42de-b9fa-7a7ae6f9d69a">
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    <input type="email" id="email" name="email" placeholder="Email id" required>
-                    <input type="text" id="phone" name="phone" placeholder="Phone No." required>
-                    <textarea id="message" name="message" rows="4" placeholder="How can we help you?"></textarea>
-                    <button type="submit">Send</button>
-                </form>
-            </div>
-            
-            
-        </main>
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
 
-        <!--===== FOOTER =====-->
-        <footer class="footer section">
-            <div class="footer__container bd-grid">
-                <div class="footer__data">
-                    <h2 class="footer__title">Rounak Kumar</h2>
-                    <p class="footer__text">I'm Rounak Kumar and this is my personal website.</p>
-                </div>
-
-                <div class="footer__data">
-                    <h2 class="footer__title">EXPLORE</h2>
-                    <ul>
-                        <li><a href="#home" class="footer__link">Home</a></li>
-                        <li><a href="#about" class="footer__link">About</a></li>
-                        <li><a href="#skills" class="footer__link">Skills</a></li>
-                        <li><a href="#portfolio" class="footer__link">Projects</a></li>
-                        <li><a href="#certificate" class="nav__link">Certificate</a></li>
-                        <li><a href="#Contact" class="footer__link">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer__data">
-                    <h2 class="footer__title">FOLLOW</h2>
-                    <a href="https://www.facebook.com/profile.php?id=100059726088451" class="footer__social"><i class='bx bxl-facebook' ></i></a>
-                    <a href="https://www.instagram.com/rounak__kumar30/" class="footer__social"><i class='bx bxl-instagram' ></i></a>
-                    <a href="https://x.com/Rounak__kumar30" class="footer__social"><i class='bx bxl-twitter' ></i></a>
-                </div>
-
-
-            </div>
-        </footer>
-
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
-
-        <!--===== MAIN JS =====-->
-        <script src="assets/js/main.js"></script>
-
-        <!-- <script src="https://smtpjs.com/v3/smtp.js">
-        </script>
-        <script>
-            function sendEmail() {
-                Email.send({
-                    SecureToken: "7b5090aa-89bb-4003-bafc-6b241c0dee9e",
-                    To: 'rounakverma30march@gmail.com',
-                    From: document.getElementById("email").value,
-                    Subject: "New Contact Form Enquiry",
-                    Body: "Name: " + document.getElementById("name").value
-                        + "<br> Email: " + document.getElementById("email").value
-                        + "<br> Phone No.: " + document.getElementById("phone").value
-                        + "<br> Message: " + document.getElementById("message").value
-                }).then(
-                    message => alert("Message Sent Successfully")
-                ).catch(
-                    error => console.error("Error:", error)
-                );
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
-        </script> -->
-        
-    </body>
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and cards
+        document.querySelectorAll('.timeline-item, .skill-category, .project-card, .certificate-card, .achievement-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Form Submission Success Message
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            setTimeout(() => {
+                alert('Thank you for your message! I will get back to you soon.');
+                form.reset();
+            }, 100);
+        });
+    </script>
+</body>
 </html>
